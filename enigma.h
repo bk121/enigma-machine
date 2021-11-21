@@ -10,9 +10,8 @@ class Enigma
   Plugboard* plugboard;
   Rotor** rotor;
   Reflector* reflector;
+public:
   int no_rotors;
-  
- public:
   Enigma(int argc, char **argv);
   char encrypt(char ch);
 };

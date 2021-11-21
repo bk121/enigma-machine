@@ -2,11 +2,6 @@
 #include "helper.h"
 using namespace std;
 
-// helper function converts integer to letter
-char int_letter(int x){
-  return static_cast<char>(x+65);
-}
-
 int noArguments(char** argv){
   char ch1;
   char ch2;
@@ -27,3 +22,6 @@ void file_suffix(char* filename, char& ch1, char& ch2){
   ch2=filename[i+2];
 }
     
+void mod26(int& premod){
+  premod=(premod+26)%26;
+}
