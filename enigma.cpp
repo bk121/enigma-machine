@@ -28,9 +28,16 @@ void Enigma::initialiseEnigma(int argc, char** argv, int& error_code){
     return;
   }
   reflector.initialiseReflector(reflector_string, error_code);
+  if (error_code!=0){
+    return;
+  }
   rotor = new Rotor[no_rotors];
   for (int i=0; i<no_rotors; i++){
-    rotor[i].initialiseRotor(rotor_strings[i], rotor_position_string, i, no_rotors);    
+    rotor[i].initialiseRotor(rotor_strings[i], rotor_position_string, i,
+			     no_rotors, error_code);
+    if (error_code!=0){
+      return;
+    }
   }
 }
 
@@ -41,7 +48,7 @@ Enigma::~Enigma(){
 char Enigma::encode (char ch, int& error_code){
   
 
-    int digit = makeInteger(ch);
+    int digit = charToInt(ch);
     digit = plugboard.output_letters[digit];
 
 

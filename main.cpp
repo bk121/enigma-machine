@@ -31,8 +31,14 @@ int main(int argc, char** argv){
   while (!cin.eof()){
     cin >> ch;
     cin >> ws;
-    ch = enigma.encode(ch, error_code);
-    cout << ch;
+    if (ch > 64 && ch < 91){
+      ch = enigma.encode(ch, error_code);
+      cout << ch;
+    }
+    else {
+      print_error(2);
+      return 2;
+    }
   }
   
   return 0;

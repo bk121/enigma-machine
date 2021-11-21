@@ -9,6 +9,11 @@ void Reflector::initialiseReflector(char* reflect_file, int error_code){
   int letter_a;
   int letter_b;
   in.open(reflect_file);
+  if (in.fail()){
+    in.close();
+    error_code=11;
+    return;
+  }
   while (!in.eof()){
     in >> letter_a;
     in >> letter_b;

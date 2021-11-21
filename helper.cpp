@@ -1,5 +1,6 @@
 #include <iostream>
 #include "helper.h"
+#include <sstream>
 using namespace std;
 
 
@@ -7,9 +8,33 @@ void mod26(int& premod){
   premod=(premod+26)%26;
 }
 
-int makeInteger(char input){
+int charToInt(char input){
   return input-65;
 }
+
+bool nonnumericCharacter(char str[]){
+  for (int i=0; str[i]!='\0'; i++){
+    if (str[i]<48 || str[i]>57){
+      return true;
+    }
+  }
+  return false;
+}
+bool outsideBounds(char str[]){
+  int x = makeInt(str);
+  if (x<0||x>25){
+    return true;
+  }
+  return false;
+}
+
+int makeInt(char str[]){
+  stringstream intValue(str);
+  int x;
+  intValue >> x;
+  return x;
+}
+
 
 void print_error(int error_code){
   switch(error_code){

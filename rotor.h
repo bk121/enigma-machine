@@ -10,7 +10,9 @@ class Rotor
   int notches[26];
   int twelve_oclock;
  public:
-  void initialiseRotor(char* rotor_file, char* rotor_position, int rotor_number, int no_rotors);
+  void initialiseRotor(char* rotor_file, char* rotor_position, int rotor_number,
+
+		       int no_rotors, int& error_code);
   
   // function which takes in 0-based alphabet index as input and outputs
   // 0-based alphabet index for a mapping from right to left (pre-reflector) 

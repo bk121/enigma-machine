@@ -5,7 +5,8 @@
 #include <fstream>
 using namespace std;
 
-void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_number, int no_rotors){
+void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_number,
+			    int no_rotors, int& error_code){
 
   // initialising rotor_number
   rotor_no=rotor_number;
@@ -14,6 +15,11 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
 
   ifstream in;
   in.open(rotor_position);
+  if (in.fail()){
+    in.close();
+    error_code=11;
+    return;
+  }
   for (int i=0; i<no_rotors-rotor_number; i++){
     in >> twelve_oclock;
   }
