@@ -5,7 +5,7 @@
 #include <fstream>
 using namespace std;
 
-Rotor::Rotor(char* rotor_file, char* rotor_position, int rotor_number, int no_rotors){
+void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_number, int no_rotors){
 
   // initialising rotor_number
   rotor_no=rotor_number;

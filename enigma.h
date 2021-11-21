@@ -7,12 +7,13 @@ using namespace std;
 
 class Enigma
 {
-  Plugboard* plugboard;
-  Rotor** rotor;
-  Reflector* reflector;
+  Plugboard plugboard;
+  Rotor* rotor;
+  Reflector reflector;
 public:
   int no_rotors;
-  Enigma(int argc, char **argv);
-  char encrypt(char ch);
+  void initialiseEnigma(int argc, char **argv, int& error_code);
+  char encode(char ch, int& error_code);
+  ~Enigma();
 };
 #endif

@@ -7,7 +7,7 @@ class Plugboard
   int output_letters[26];
 
  public:
-  Plugboard(char* plug_file);
+  void initialisePlugboard(char* plug_file, int& error_code);
 };
 
 #endif

@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-Plugboard::Plugboard(char* plug_file){
+void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
   for (int i=0; i<26; i++){
     output_letters[i]=i;
   }

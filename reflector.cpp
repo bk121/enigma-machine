@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-Reflector::Reflector(char* reflect_file){
+void Reflector::initialiseReflector(char* reflect_file, int error_code){
   ifstream in;
   int letter_a;
   int letter_b;
