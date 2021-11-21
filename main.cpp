@@ -19,7 +19,6 @@ int main(int argc, char** argv){
   //cout << enigma.encrypt('D');
   //cout << enigma.encrypt('O');
   // cout << enigma.encrypt('N');
-  cout << endl;
   
   return 0;
 }
