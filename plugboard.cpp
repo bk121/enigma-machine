@@ -12,6 +12,10 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
   int letter_a;
   int letter_b;
   in.open(plug_file);
+  if (in.fail()){
+    error_code=11;
+    return;
+  }
   while (!in.eof()){
     in >> letter_a;
     in >> letter_b;

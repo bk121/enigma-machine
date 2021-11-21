@@ -1,7 +1,10 @@
 #ifndef HELPER_H
 #define HELPER_H
 
-int noArguments(char** argv);
-void file_suffix(char* filename, char& ch1, char& ch2);
-void mod26(int& premod); 
+
+//
+void mod26(int& premod);
+int makeInteger(char input);
+void print_error(int error_code);
+
 #endif

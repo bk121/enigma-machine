@@ -24,6 +24,9 @@ void Enigma::initialiseEnigma(int argc, char** argv, int& error_code){
 
   //initialising plugboard, reflector and rotors
   plugboard.initialisePlugboard(plugboard_string, error_code);
+  if (error_code!=0){
+    return;
+  }
   reflector.initialiseReflector(reflector_string, error_code);
   rotor = new Rotor[no_rotors];
   for (int i=0; i<no_rotors; i++){
