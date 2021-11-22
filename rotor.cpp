@@ -9,46 +9,38 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
 			    int no_rotors, int& error_code){
 
   // initialising rotor_number
-  rotor_no=2;//rotor_number;
+  rotor_no=rotor_number;
 
   // initialising twelve_oclock
 
   ifstream in;
   in.open(rotor_position);
-
+  /*
   if (in.fail()){
     in.close();
     error_code=11;
     return;
   }
 
-  /* int rotor_position_length=fileLength(rotor_position);
+  int rotor_position_length=fileLength(rotor_position);
   int rotor_position_file_array[rotor_position_length];
 
-   for (int i=0; i<rotor_position_length && !in.eof(); i++){
-    in >> _file_array[i];
-
+  for (int i=0; i<rotor_position_length && !in.eof(); i++){
+    in >> rotor_position_file_array[i];
 
     if (in.fail() && !in.eof()){
       error_code=4;
       return;
     }
 
-    if (outsideBounds(plugboard_file_array[i])){
-	error_code=3;
-	return;
-      }
-
-    for (int j=0; j<i; j++){
-      if (plugboard_file_array[i]==plugboard_file_array[j]){
-	error_code=5;
-	return;
-      }
+    if (outsideBounds(rotor_position_file_array[i])){
+      error_code=3;
+      return;
     }
   }
 
-  */
-  
+  if (rotor_position_length<no_rotors)
+ */ 
   for (int i=0; i<no_rotors-rotor_number; i++){
     in >> twelve_oclock;
   }

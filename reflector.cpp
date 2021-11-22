@@ -15,7 +15,6 @@ void Reflector::initialiseReflector(char * reflect_file, int error_code){
   }
 
   int reflector_file_length=fileLength(reflect_file);
-
   int reflector_file_array[reflector_file_length];
 
   for (int i=0; i<reflector_file_length && !in.eof(); i++){
