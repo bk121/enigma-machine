@@ -1,6 +1,7 @@
 #include <iostream>
 #include "helper.h"
 #include <sstream>
+#include <fstream>
 using namespace std;
 
 
@@ -20,13 +21,27 @@ bool nonnumericCharacter(char str[]){
   }
   return false;
 }
-bool outsideBounds(char str[]){
-  int x = makeInt(str);
-  if (x<0||x>25){
+bool outsideBounds(int test){
+  if (test>25 || test<0){
     return true;
   }
   return false;
 }
+
+
+int fileLength(char* file){
+  string string;
+  int count = 0;
+  ifstream in;
+  in.open(file);
+  while(!in.eof()){
+    in >> string;
+    count++;
+  }
+  return count;
+}
+  
+  
 
 int makeInt(char str[]){
   stringstream intValue(str);
