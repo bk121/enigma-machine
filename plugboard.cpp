@@ -25,7 +25,7 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
   int plugboard_file_array[plug_file_length];
 
 
-  for (int i=0; i<26 && !in.eof(); i++){
+  for (int i=0; i<plug_file_length && !in.eof(); i++){
     in >> plugboard_file_array[i];
 
 
