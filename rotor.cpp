@@ -32,6 +32,11 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
 
   int mapping_int;
   in.open(rotor_file);
+  if (in.fail()){
+    in.close();
+    error_code=11;
+    return;
+  }
   for (int i=0; i<26; i++){
     in >> mapping_int;
     output_letters[i]=mapping_int;
