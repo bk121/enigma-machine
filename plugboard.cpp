@@ -11,7 +11,7 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
   output_letters[i]=i;
   }
 
-
+ 
   ifstream in;
   in.open(plug_file);
 
@@ -24,15 +24,13 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
   int plug_file_length=fileLength(plug_file);
   int plugboard_file_array[plug_file_length];
 
-  
-  for (int i=0; in.good(); i++){
+
+  for (int i=0; i<plug_file_length && !in.eof(); i++){
     in >> plugboard_file_array[i];
 
-    if (in.eof()){
-      return;
-    }
-    
-    if (in.fail()){
+
+
+    if (in.fail() && !in.eof()){
       error_code=4;
       return;
     }
@@ -49,6 +47,7 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
       }
     }
   }
+
   in.close();
   if (plug_file_length%2==1){
     error_code=6;

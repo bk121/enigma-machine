@@ -33,6 +33,10 @@ int main(int argc, char** argv){
     cin >> ws;
     if (ch > 64 && ch < 91){
       ch = enigma.encode(ch, error_code);
+      if (error_code!=0){
+	print_error(error_code);
+	return error_code;
+      }
       cout << ch;
     }
     else {

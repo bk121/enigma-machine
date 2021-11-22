@@ -34,9 +34,15 @@ int fileLength(char* file){
   int count = 0;
   ifstream in;
   in.open(file);
-  while(!in.eof()){
-    in >> string >> ws;
+  in >> string >> ws;
+  if (in.eof()){
+    in.close();
+    return count;
+  }
+  count++;
+  while(in.good()){
     count++;
+    in >> string >> ws; 
   }
   return count;
 }

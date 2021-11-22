@@ -18,14 +18,11 @@ void Reflector::initialiseReflector(char * reflect_file, int error_code){
 
   int reflector_file_array[reflector_file_length];
 
-  for (int i=0; i<reflector_file_length; i++){
+  for (int i=0; i<reflector_file_length && !in.eof(); i++){
     in >> reflector_file_array[i];
 
-    if (in.eof()){
-      return;
-    }
    
-    if (in.fail()){
+    if (in.fail() && !in.eof()){
       error_code=4;
       return;
     }
