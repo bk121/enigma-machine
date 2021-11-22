@@ -25,29 +25,31 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
   int plugboard_file_array[plug_file_length];
 
 
-  for (int i=0; i<plug_file_length && !in.eof(); i++){
+  for (int i=0; i<plug_file_length && in.good(); i++){
     in >> plugboard_file_array[i];
 
+    if (i<26){
 
+      if (in.fail() && !in.eof()){
+	error_code=4;
+	return;
+      }
 
-    if (in.fail() && !in.eof()){
-      error_code=4;
-      return;
-    }
-
-    if (outsideBounds(plugboard_file_array[i])){
+      if (outsideBounds(plugboard_file_array[i])){
 	error_code=3;
 	return;
       }
 
-    for (int j=0; j<i; j++){
-      if (plugboard_file_array[i]==plugboard_file_array[j]){
-	error_code=5;
-	return;
+      for (int j=0; j<i; j++){
+	if (plugboard_file_array[i]==plugboard_file_array[j]){
+	  error_code=5;
+	  return;
+	}
       }
     }
   }
 
+  
   in.close();
   if (plug_file_length%2==1){
     error_code=6;
