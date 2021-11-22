@@ -7,7 +7,7 @@ class Reflector
   int output_letters[26];
 
  public:
-  void initialiseReflector(char* reflect_file, int error_code);
+  void initialiseReflector(char * reflect_file, int error_code);
 };
 
 #endif

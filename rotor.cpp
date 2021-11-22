@@ -9,7 +9,7 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
 			    int no_rotors, int& error_code){
 
   // initialising rotor_number
-  rotor_no=rotor_number;
+  rotor_no=2;//rotor_number;
 
   // initialising twelve_oclock
 
