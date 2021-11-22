@@ -15,7 +15,7 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
 
   ifstream in;
   in.open(rotor_position);
-  /*
+  
   if (in.fail()){
     in.close();
     error_code=11;
@@ -39,13 +39,16 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
     }
   }
 
-  if (rotor_position_length<no_rotors)
- */ 
-  for (int i=0; i<no_rotors-rotor_number; i++){
-    in >> twelve_oclock;
+  if (rotor_position_length<no_rotors){
+    error_code=8;
+    return;
   }
   in.close();
   
+  for (int i=0; i<no_rotors-rotor_number; i++){
+    twelve_oclock=rotor_position_file_array[i];
+  }
+
 
 
   // initialising output_letters and no_notches
