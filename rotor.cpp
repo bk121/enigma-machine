@@ -54,21 +54,49 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
   // initialising output_letters and no_notches
   
 
-  int mapping_int;
+
   in.open(rotor_file);
   if (in.fail()){
     in.close();
     error_code=11;
     return;
   }
+
+  int rotor_file_length=fileLength(rotor_file);
+  int rotor_file_array[rotor_file_length];
+
+
+  for (int i=0; i<rotor_file_length && !in.eof(); i++){
+    in >> rotor_file_array[i];
+
+
+
+    if (in.fail() && !in.eof()){
+      error_code=4;
+      return;
+    }
+
+    if (outsideBounds(rotor_file_array[i])){
+	error_code=3;
+	return;
+      }
+    
+    if (i<26){
+      for (int j=0; j<i; j++){
+        if (rotor_file_array[i]==rotor_file_array[j]){
+	  error_code=7;
+	  return;
+        }
+      }
+    }
+  }
+  in.close();
   for (int i=0; i<26; i++){
-    in >> mapping_int;
-    output_letters[i]=mapping_int;
+    output_letters[i]=rotor_file_array[i];
   }
  
-  for (int i=0; !in.eof(); i++){    
-    in >> notches[i];
-    in >> ws;
+  for (int i=0; i+26<rotor_file_length; i++){    
+    notches[i]=rotor_file_array[i+26];
     no_notches++;
   }
   in.close();
