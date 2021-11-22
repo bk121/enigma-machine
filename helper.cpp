@@ -85,6 +85,7 @@ void print_error(int error_code){
     break;
   case 11:
     cerr << "Error opening configuration file\n";
-    break;
-  }    
+    break;  
+  }
+  return;
 }

@@ -41,9 +41,7 @@ void Enigma::initialiseEnigma(int argc, char** argv, int& error_code){
   }
 }
 
-Enigma::~Enigma(){
-  delete [] rotor;
-}
+
 
 char Enigma::encode (char ch, int& error_code){
   

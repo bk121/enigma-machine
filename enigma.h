@@ -14,6 +14,6 @@ public:
   int no_rotors;
   void initialiseEnigma(int argc, char **argv, int& error_code);
   char encode(char ch, int& error_code);
-  ~Enigma();
+
 };
 #endif
