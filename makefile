@@ -6,19 +6,19 @@ enigma : $(objects)
 main.o : main.cpp enigma.h
 	g++ -g -Wall -c main.cpp
 
-enigma.o : enigma.cpp enigma.h
+enigma.o : enigma.cpp enigma.h reflector.h rotor.h plugboard.h helper.h
 	g++ -g -Wall -c enigma.cpp
 
-plugboard.o : plugboard.cpp plugboard.h
+plugboard.o : plugboard.cpp plugboard.h rotor.h helper.h reflector.h
 	g++ -g -Wall -c plugboard.cpp
 
-reflector.o : reflector.cpp reflector.h
+reflector.o : reflector.cpp reflector.h rotor.h helper.h plugboard.h
 	g++ -g -Wall -c reflector.cpp
 
-helper.o : helper.cpp helper.h
+helper.o : helper.cpp helper.h rotor.h plugboard.h reflector.h 
 	g++ -g -Wall -c helper.cpp
 
-rotor.o : rotor.cpp rotor.h
+rotor.o : rotor.cpp rotor.h rotor.h plugboard.h reflector.h
 	g++ -g -Wall -c rotor.cpp
 
 clean:

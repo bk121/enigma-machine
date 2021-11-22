@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char** argv){
 
-  //Error codes:
+
 
   int error_code=0;
 
@@ -45,8 +45,7 @@ int main(int argc, char** argv){
     }
   }
   
-  //   ch = enigma.encode('D', error_code);
-  //  cout << ch;
+
   return 0;
 }
 
