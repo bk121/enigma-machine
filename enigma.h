@@ -12,7 +12,12 @@ class Enigma
   Reflector reflector;
 public:
   int no_rotors;
+  // method that takes in argc and argv, and then initialises an enigma machine based
+  // on the argument line parameters.The function will also return an appropriate error code if one
+  // is found.
   void initialiseEnigma(int argc, char **argv, int& error_code);
+
+   
   char encode(char ch, int& error_code);
 
 };

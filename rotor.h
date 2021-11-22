@@ -3,13 +3,16 @@
 
 class Rotor
 {
- public:
+public:
   int rotor_no;
   int output_letters[26];
   int no_notches;
   int notches[26];
   int twelve_oclock;
- public:
+
+  // function that takes in rotor file name, rotor position file name, rotor number,
+  // number of rotors and error code, and then initialises a rotor based on these
+  // parameters. The function will also return an appropriate error code if one is found.
   void initialiseRotor(char* rotor_file, char* rotor_position, int rotor_number,
 
 		       int no_rotors, int& error_code);

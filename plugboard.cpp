@@ -40,7 +40,7 @@ void Plugboard::initialisePlugboard(char* plug_file, int& error_code){
 	return;
       }
 
-      for (int j=0; j<i; j++){
+      for (int j=0; j<i; j++){ 
 	if (plugboard_file_array[i]==plugboard_file_array[j]){
 	  error_code=5;
 	  return;
