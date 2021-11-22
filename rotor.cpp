@@ -91,6 +91,12 @@ void Rotor::initialiseRotor(char* rotor_file, char* rotor_position, int rotor_nu
     }
   }
   in.close();
+
+  if (rotor_file_length<26){
+    error_code=7;
+    return;
+  }
+    
   for (int i=0; i<26; i++){
     output_letters[i]=rotor_file_array[i];
   }
